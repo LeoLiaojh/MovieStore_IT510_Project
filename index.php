@@ -5,7 +5,8 @@
 	<title>Movie Store</title>
 </head>
 <body>
-	<h1>This is a movie store.</h1>
-	<div>dfdf</div>
+	<?php
+		echo "If you can see this Text, your're successfully running a PHP page."
+	?>
 </body>
 </html>
