@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Movie Store</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		  <a class="navbar-brand" href="#">Movie Store</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		      <!--li class="nav-item active">
+		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Link</a>
+		      </li-->
+		      <li class="nav-item dropdown">
+		      	<a class="nav-link dropdown-toggle" href="#" id="category_dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		      		Category
+		      	</a>
+		      	<div class="dropdown-menu" aria-lablledby="category_dropdown">
+		      		<a class="dropdown-item" href="#">DVDs</a>
+		      		<a class="dropdown-item" href="#">Online Video</a>
+		      		<a class="dropdown-item" href="#">Rent</a>
+		      	</div>
+		      </li>
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          UserName
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		          <a class="dropdown-item" href="#">Orders</a>
+		          <a class="dropdown-item" href="#">Cart</a>
+		          <div class="dropdown-divider"></div>
+		          <a class="dropdown-item" href="#">Sign Out</a>
+		        </div>
+		      </li>
+		      <!--li class="nav-item">
+		        <a class="nav-link disabled" href="#">Disabled</a>
+		      </li-->
+		    </ul>
+		    <form class="form-inline my-2 my-lg-0">
+		      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+		      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		    </form>
+		  </div>
+		</nav>
+	</header>
+
+	<style type="text/css">
+		.movie_detail span{
+			display: block;
+			position: relative;
+		}
+		.movie_detail .movie_name {
+			font-size: 2.4rem;
+			margin-bottom: 20px;
+		}
+		.movie_detail .movie_year {
+			font-size: 1.2rem;
+		}
+		.movie_detail .movie_price {
+			font-size: 1.2rem;
+			font-weight: bolder;
+			margin-bottom: 40px;
+		}
+		.submit_movie {
+			width: 100%;
+		}
+		.form-control {
+			width: 40%;
+		}
+
+		.description {
+			margin-top: 60px;
+		}
+		.description h3 {
+			display: block;
+			width: 100%;
+			margin-bottom: 30px;
+		}
+		.description p {
+			line-height: 35px;
+		}
+		.cast .w-120{
+			margin-top: 20px;
+			margin-left: 20px;
+			cursor: pointer;
+		}
+		.cast-button {
+			width: 120px;
+			height: 120px;
+			border-radius: 100%;
+			background-color: #ddd;
+			overflow: hidden;
+		}
+		.cast-button img {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+		.cast span {
+			display: block;
+			text-align: center;
+		}
+		.cast h3,
+		.add-info h3 {
+			display: block;
+			width: 100%;
+			padding-left: 15px;
+			margin-top: 60px;
+			margin-bottom: 30px;
+		}
+		.add-info .col-3 {
+			margin-top: 20px;
+			margin-bottom: 80px;
+		}
+		.add-info h4 {
+			font-size: 1.2rem;
+			font-weight: bold;
+		}
+		.add-info span {
+			font-size: 1rem;
+			color: #333;
+		}
+	</style>
+	<div class="container movie_category">
+		<div class="row">
+			<div class="col-3">
+				<img src="img/movie.jpg" class="img-fluid" alt="Responsive image">
+			</div>
+			<div class="col-9 movie_detail">
+				<span class="movie_name">BatMan: Gotham By Gaslight</span>
+				<span class="movie_year">2018 - 1:20:00 - Action/Advanture, Animation</span>
+				<span class="movie_price">price: $33.5</span>
+				<form class="row">
+					<div class="col-2">
+						<button class="btn btn-primary submit_movie" type="submit">Buy</button>
+					</div>
+					<div class="col-10">
+						<select class="form-control">
+						  <option>I want to buy it.</option>
+						  <option>I want to rent it.</option>
+						  <option>I want to download it.</option>
+						</select>
+					</div>
+				</form>
+
+			</div>
+		</div>
+		<div class="row description">
+			<div class="col-12">
+				<h3>Description</h3>
+				<p>
+					This title is available in Ultra High Definition and HDR capable. To view in full UHD, please ensure you are using the ‘Xbox One S’ or ‘Xbox One X’ and are connected to a 4K television over HDMI 2.0a with support for HDCP 2.2. Purchase Ultra High Definition by selecting the UHD option in the resolution drop down menu. A HDR capable television is required to view in High Dynamic Range. Gotham City, at the turn of the century, is experiencing a golden era of discovery and industry as showcased by affluent businessman Bruce Wayne's World Fair. Down in the darkest alleys, there is a killer on the loose. Preying on the city's women, this killer is as precise as he is cruel. As Police Commissioner James Gordon tries to calm the fears of Gotham's citizens over the butcher named Jack the Ripper, the masked vigilante Batman does some detective work of his own, with the help of the sultry and surefooted Selina Kyle. Witness a world in flames as the killer's controlled savagery meets the calculated stealth of the Dark Knight!
+				</p>
+			</div>
+		</div>
+
+		<div class="row cast">
+			<h3>Cast and crew</h3>
+			<div class="w-120">
+				<div class="cast-button">
+					<img src="img/default.jpg">
+				</div>
+				<span>Sam Wu</span>
+			</div>
+			<div class="w-120">
+				<div class="cast-button">
+					<img src="img/default.jpg">
+				</div>
+				<span>Sam Wu</span>
+			</div>
+			<div class="w-120">
+				<div class="cast-button">
+					<img src="img/default.jpg">
+				</div>
+				<span>Sam Wu</span>
+			</div>
+			<div class="w-120">
+				<div class="cast-button">
+					<img src="img/default.jpg">
+				</div>
+				<span>Sam Wu</span>
+			</div>
+			<div class="w-120">
+				<div class="cast-button">
+					<img src="img/default.jpg">
+				</div>
+				<span>Sam Wu</span>
+			</div>
+			<div class="w-120">
+				<div class="cast-button">
+					<img src="img/default.jpg">
+				</div>
+				<span>Sam Wu</span>
+			</div>
+			<div class="w-120">
+				<div class="cast-button">
+					<img src="img/default.jpg">
+				</div>
+				<span>Sam Wu</span>
+			</div>
+			<div class="w-120">
+				<div class="cast-button">
+					<img src="img/default.jpg">
+				</div>
+				<span>Sam Wu</span>
+			</div>
+			<div class="w-120">
+				<div class="cast-button">
+					<img src="img/default.jpg">
+				</div>
+				<span>Sam Wu</span>
+			</div>
+		</div>
+
+		<div class="row add-info">
+			<h3 style="margin-top: 120px;">Additional info</h3>
+			<div class="col-3">
+				<h4>Directors</h4>
+				<span>Sam Wu</span>
+			</div>
+			<div class="col-3">
+				<h4>Released year</h4>
+				<span>2018</span>
+			</div>
+			<div class="col-3">
+				<h4>Genres</h4>
+				<span>Action/Adventure</span>
+			</div>
+			<div class="col-3">
+				<h4>Studio</h4>
+				<span>Bro</span>
+			</div>
+			<div class="col-3">
+				<h4>Writers</h4>
+				<span>Jim King</span>
+			</div>
+			<div class="col-3">
+				<h4>Subtitles</h4>
+				<span>English</span>
+			</div>
+			<div class="col-3">
+				<h4>Duration</h4>
+				<span>1:44:00</span>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+</body>
+</html>

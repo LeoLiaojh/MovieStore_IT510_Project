@@ -1,4 +1,8 @@
 <?php
+	// dynamic array
+	$da = array();
+	$da[] = "First";
+	echo $da[0] . "<br/>";
 	// Session
 	session_start();
 

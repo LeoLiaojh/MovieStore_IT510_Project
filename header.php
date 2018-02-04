@@ -7,6 +7,7 @@
 		'<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">' .
 		'<title>'. $title. '</title>' .
 		'<link rel="stylesheet" type="text/css" href="css/bootstrap.css">' .
+		'<link rel="stylesheet" type="text/css" href="css/swiper.css">' .
 		'<link rel="stylesheet" type="text/css" href="css/main.css">' .
 	'</head>' .
 	'<body>' .

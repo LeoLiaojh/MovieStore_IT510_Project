@@ -6,6 +6,32 @@
 	<title>Movie Store</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper.css">
+	<style type="text/css">
+		 .swiper-container {
+		      width: 100%;
+		      height: auto;
+		    }
+		    .swiper-slide {
+		      text-align: center;
+		      font-size: 18px;
+		      background: #fff;
+
+		      /* Center slide text vertically */
+		      display: -webkit-box;
+		      display: -ms-flexbox;
+		      display: -webkit-flex;
+		      display: flex;
+		      -webkit-box-pack: center;
+		      -ms-flex-pack: center;
+		      -webkit-justify-content: center;
+		      justify-content: center;
+		      -webkit-box-align: center;
+		      -ms-flex-align: center;
+		      -webkit-align-items: center;
+		      align-items: center;
+		    }
+	</style>
 </head>
 <body>
 	<header>
@@ -57,23 +83,16 @@
 	</header>
 
 	<div class="container" id="advertise_imgs">
-		<div class="row">
-			<div class="col-8">
-				<div class="advertise_img">
-					<img src="img/example.jpg" class="img-fluid" alt="Responsive image">
-					<span class="advertise_word">Short Text</span>
-				</div>
+		<!-- Swiper -->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">Slide 1</div>
+				<div class="swiper-slide">Slide 2</div>
+				<div class="swiper-slide">Slide 3</div>
 			</div>
-			<div class="col-4">
-				<div class="advertise_img">
-					<img src="img/example.jpg" class="img-fluid" alt="Responsive image">
-					<span class="advertise_word">Short Text</span>
-				</div>
-				<div class="advertise_img" style="padding-top:20px">
-					<img src="img/example.jpg" class="img-fluid" alt="Responsive image">
-					<span class="advertise_word">Short Text</span>
-				</div>
-			</div>
+			<!-- Add Arrows -->
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
 		</div>
 	</div>
 
@@ -275,5 +294,15 @@
 	
 	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/swiper.js"></script>
+	<script type="text/javascript">
+		
+		var swiper = new Swiper('.swiper-container', {
+	      navigation: {
+	        nextEl: '.swiper-button-next',
+	        prevEl: '.swiper-button-prev',
+	      },
+	    });
+	</script>
 </body>
 </html>
