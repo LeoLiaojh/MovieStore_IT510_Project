@@ -49,7 +49,7 @@
 				$userid = $row['UserID'];
 
 				# get order info
-				$sql2 = "SELECT OrderID, OrderDate, TotalPrice, MovieID FROM orders WHERE UserID = ". $userid. " ORDER BY OrderDate DESC";
+				$sql2 = "SELECT OrderID, OrderDate, TotalPrice, MovieID FROM orders WHERE UserID = ". $userid. " ORDER BY OrderID DESC";
 				$result2 = $sqlcon->query($sql2);
 				if ($result2->num_rows > 0) {
 					while ($row2 = $result2->fetch_assoc()) {

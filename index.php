@@ -29,7 +29,7 @@
 
 					    	echo 
 					    		'<div class="swiper-slide">' .
-					    			'<img src='. $row['Picture']. ' class="img-fluid" alt="Responsive image" onclick="location.href='. $location. '">' .
+					    			'<img src='. $row['Picture']. ' class="img-fluid" style="width:90%;" alt="Responsive image" onclick="location.href='. $location. '">' .
 					    			'<span class="advertise_word">'. $row['AdsText']. '</span>' .
 					    		'</div>';
 					        // echo '<img src='. $row['Picture']. ' class="img-fluid" alt="Responsive image">'.
@@ -77,19 +77,19 @@
 							$sql2 = "SELECT Price FROM forsell WHERE MovieID=". $row['MovieID'];
 							$result2 = $sqlcon->query($sql2);
 							$row2 = $result2->fetch_assoc();
-							echo '<span class="movie_price">Sell: '. $row2['Price']. '</span>';
+							echo '<span class="movie_price">Sell: $'. $row2['Price']. '</span>';
 						} else if ($row['IsRent'] == 1) {
 							# code...
 							$sql3 = "SELECT Price FROM forrent WHERE MovieID=". $row['MovieID'];
 							$result3 = $sqlcon->query($sql3);
 							$row3 = $result3->fetch_assoc();
-							echo '<span class="movie_price">Rent: '. $row3['Price']. '</span>';
+							echo '<span class="movie_price">Rent: $'. $row3['Price']. '</span>';
 						} else if ($row['IsDownload'] == 1) {
 							# code...
 							$sql4 = "SELECT Price FROM fordownload WHERE MovieID=". $row['MovieID'];
 							$result4 = $sqlcon->query($sql4);
 							$row4 = $result4->fetch_assoc();
-							echo '<span class="movie_price">Download: '. $row4['Price']. '</span>';
+							echo '<span class="movie_price">Download: $'. $row4['Price']. '</span>';
 						} else {
 							echo '<span class="movie_price">Out of Stock</span>';
 						}
@@ -136,19 +136,19 @@
 							$sql2 = "SELECT Price FROM forsell WHERE MovieID=". $row['MovieID'];
 							$result2 = $sqlcon->query($sql2);
 							$row2 = $result2->fetch_assoc();
-							echo '<span class="movie_price">Sell: '. $row2['Price']. '</span>';
+							echo '<span class="movie_price">Sell: $'. $row2['Price']. '</span>';
 						} else if ($row['IsRent'] == 1) {
 							# code...
 							$sql3 = "SELECT Price FROM forrent WHERE MovieID=". $row['MovieID'];
 							$result3 = $sqlcon->query($sql3);
 							$row3 = $result3->fetch_assoc();
-							echo '<span class="movie_price">Rent: '. $row3['Price']. '</span>';
+							echo '<span class="movie_price">Rent: $'. $row3['Price']. '</span>';
 						} else if ($row['IsDownload'] == 1) {
 							# code...
 							$sql4 = "SELECT Price FROM fordownload WHERE MovieID=". $row['MovieID'];
 							$result4 = $sqlcon->query($sql4);
 							$row4 = $result4->fetch_assoc();
-							echo '<span class="movie_price">Download: '. $row4['Price']. '</span>';
+							echo '<span class="movie_price">Download: $'. $row4['Price']. '</span>';
 						} else {
 							echo '<span class="movie_price">Out of Stock</span>';
 						}

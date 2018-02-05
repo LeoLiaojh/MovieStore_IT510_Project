@@ -28,9 +28,19 @@
 						} else {
 						    $sql2 = "INSERT INTO users (UserName, Password) VALUES ('$username', '$password')";
 						    if ($sqlcon->query($sql2) === TRUE) {
-						    	$expire = time() + 30*24*60*60;
-								setcookie("user", "$username", $expire);
-							    echo json_encode(array('result' => '0000', 'message' => 'Registered successful!'));
+						    	$sql3 ="SELECT UserID FROM users WHERE UserName='". $username. "'";
+						    	$result3 = $sqlcon->query($sql3);
+						    	$row3 = $result3->fetch_assoc();
+						    	$user_id = $row3['UserID'];
+
+						    	$sql4 = "INSERT INTO customers (UserID) VALUES (". $user_id. ")";
+						    	if ($sqlcon->query($sql4) === TRUE) {
+						    		$expire = time() + 30*24*60*60;
+									setcookie("user", "$username", $expire);
+								    echo json_encode(array('result' => '0000', 'message' => 'Registered successful!'));
+						    	} else {
+						    		echo json_encode(array('result' => '1007', 'message' => 'Connection error!'));
+						    	}
 							} else {
 							    echo json_encode(array('result' => '1006', 'message' => 'Connection error!'));
 							}

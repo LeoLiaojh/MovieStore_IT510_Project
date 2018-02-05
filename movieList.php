@@ -72,7 +72,7 @@
 			if (isset($_POST['search_sub'])) {
 				# code...
 				$content = "'%". $_POST['search_para']. "%'";
-				$sql = "SELECT MovieID, MovieName, IsSell, IsRent, IsDownload, picture, Year FROM movies AS M WHERE MovieName LIKE ". $content. " OR MovieID IN ( SELECT M.MovieID FROM movies AS M, casts AS C, moviecast AS MC WHERE M.MovieID = MC.MovieID AND C.CastID = MC.CastID AND C.Cast_F_Name LIKE ". $content. " OR C.Cast_L_Name LIKE ". $content. ") ORDER BY Year";
+				$sql = "SELECT MovieID, MovieName, IsSell, IsRent, IsDownload, picture, Year FROM movies AS M WHERE MovieName LIKE ". $content. " OR MovieID IN ( SELECT M.MovieID FROM movies AS M, casts AS C, moviecast AS MC WHERE M.MovieID = MC.MovieID AND C.CastID = MC.CastID AND (C.Cast_F_Name LIKE ". $content. " OR C.Cast_L_Name LIKE ". $content. ")) ORDER BY Year";
 			}
 		} else {
 			$sql = "SELECT M.MovieID, M.MovieName, M.IsSell, M.IsRent, M.IsDownload, M.picture, M.Year FROM movies AS M, genres AS G, moviegenre AS MG WHERE M.MovieID = MG.MovieID AND G.GenreID = MG.GenreID AND MG.GenreID =". $_GET['id']. " ORDER BY M.Year DESC";

@@ -175,7 +175,7 @@ if ($sqlcon->connect_error) {
 	while($row7 = $result7->fetch_assoc()) {
 		if ($row7['IsDirector']==1) {
 			# code...
-			echo $row7['Cast_F_Name']. ' '. $row7['Cast_L_Name'];
+			echo $row7['Cast_F_Name']. ' '. $row7['Cast_L_Name']. '<br>';
 		}
 	}
 	echo 

@@ -22,6 +22,7 @@
 		color: #fff;
 		margin-top: 120px;
 		margin-bottom: 30px;
+		cursor: pointer;
 	}
 	.log-box {
 		display: block;
@@ -41,7 +42,7 @@
 		padding-left: 5px;
 	}
 </style>
-<div class="log-title">
+<div class="log-title" onclick="location.href='index.php'">
 	Log In
 </div>
 <div class="log-box">
@@ -53,7 +54,7 @@
 	<div class="form-group">
 	    <label for="exampleInputPassword1">Password</label>
 	    <input type="password" id="password" class="form-control" placeholder="Enter your password">
-	    <a href="">forgot my password?</a>
+	    <a href="signup.php">Sign up</a>
 	</div>
 	<button type="submit" class="btn btn-primary" onclick="log_submit()">Submit</button>
 </div>
