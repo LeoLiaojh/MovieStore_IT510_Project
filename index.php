@@ -15,15 +15,21 @@
 				    die("Connection failed: " . $sqlcon->connect_error);
 				} else {
 					# Get Ads from DB
-					$sql = "SELECT AdsText, Picture FROM advertisements";
+					$sql = "SELECT AdsText, Picture, MovieID FROM advertisements";
 					$result = $sqlcon->query($sql);
 
 					if ($result->num_rows > 0) {
 					    // output data of each row
 					    while($row = $result->fetch_assoc()) {
+					    	# get movie name
+					    	$sql2 = "SELECT MovieName FROM movies WHERE MovieID=". $row['MovieID'];
+					    	$result2 = $sqlcon->query($sql2);
+					    	$row2 = $result2->fetch_assoc();
+					    	$location = "'movies.php?id=". $row['MovieID']. "&Name=". $row2['MovieName']. "'";
+
 					    	echo 
 					    		'<div class="swiper-slide">' .
-					    			'<img src='. $row['Picture']. ' class="img-fluid" alt="Responsive image">' .
+					    			'<img src='. $row['Picture']. ' class="img-fluid" alt="Responsive image" onclick="location.href='. $location. '">' .
 					    			'<span class="advertise_word">'. $row['AdsText']. '</span>' .
 					    		'</div>';
 					        // echo '<img src='. $row['Picture']. ' class="img-fluid" alt="Responsive image">'.
@@ -117,8 +123,10 @@
 				if ($result->num_rows > 0) {
 				    // output data of each row
 				    while($row = $result->fetch_assoc()) {
+				    	$location = "'movies.php?id=". $row['MovieID']. "&Name=". $row['MovieName']. "'";
+
 				    	echo 
-				    		'<div class="col-2">' .
+				    		'<div class="col-2" onclick="location.href='. $location. '">' .
 				    			'<div class="movie_info">' .
 				    				'<img src='. $row['Picture']. ' class="img-fluid" alt="Responsive image">' .
 				    				'<span class="movie_name">'. $row['MovieName']. '</span>' .

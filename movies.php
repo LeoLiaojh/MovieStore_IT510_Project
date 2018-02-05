@@ -92,6 +92,11 @@ $sqlcon = new mysqli("localhost", "root", "", "movie_store");
 if ($sqlcon->connect_error) {
     die("Connection failed: " . $sqlcon->connect_error);
 } else {
+	# Add hot credit
+	$sql_hot = "UPDATE movies SET hotcredit = hotcredit + 1 WHERE MovieID=". $_GET['id'];
+	$sqlcon->query($sql_hot);
+
+
 	# Get Ads from DB
 	$sql = "SELECT MovieID, MovieName, Year, Duration, Studio, Description, IsRent, IsSell, IsDownload, picture FROM movies WHERE MovieID =". $_GET['id'];
 	$result = $sqlcon->query($sql);
@@ -113,7 +118,7 @@ if ($sqlcon->connect_error) {
 		$result3 = $sqlcon->query($sql3);
 		$row3 = $result3->fetch_assoc();
 		echo 
-			'price: $'. $row3['price']. '</span><div class="row"><div class="col-3"><button class="btn btn-primary submit_movie" type="submit">Buy</button></div><div class="col-9"><select id="sell_option" class="form-control">'.
+			'price: $'. $row3['price']. '</span><div class="row"><div class="col-3"><button class="btn btn-primary submit_movie" type="button" onclick="checkout_buy()">Buy</button></div><div class="col-9"><select id="sell_option" class="form-control">'.
 			'<option value='. $row3['price']. ' selltype="1" selected="selected">I want to buy it.</option>';
 	}
 	if ($row['IsRent']==1) {
@@ -126,7 +131,7 @@ if ($sqlcon->connect_error) {
 			echo '<option value='. $row4['price']. ' selltype="2">I want to rent it.</option>';
 		} else {
 			echo 
-			'price: $'. $row4['price']. '</span><div class="row"><div class="col-3"><button class="btn btn-primary submit_movie" type="submit">Buy</button></div><div class="col-9"><select id="sell_option" class="form-control">'.
+			'price: $'. $row4['price']. '</span><div class="row"><div class="col-3"><button class="btn btn-primary submit_movie" type="button" onclick="checkout_buy()">Buy</button></div><div class="col-9"><select id="sell_option" class="form-control">'.
 			'<option value='. $row4['price']. ' selltype="2" selected="selected">I want to rent it.</option>';
 		}
 	}
@@ -140,7 +145,7 @@ if ($sqlcon->connect_error) {
 			echo '<option value='. $row5['price']. ' selltype="3">I want to download it.</option>';
 		} else {
 			echo 
-			'price: $'. $row5['price']. '</span><div class="row"><div class="col-3"><button class="btn btn-primary submit_movie" type="submit">Buy</button></div><div class="col-9"><select id="sell_option" class="form-control">'.
+			'price: $'. $row5['price']. '</span><div class="row"><div class="col-3"><button class="btn btn-primary submit_movie" type="button" onclick="checkout_buy()">Buy</button></div><div class="col-9"><select id="sell_option" class="form-control">'.
 			'<option value='. $row5['price']. ' selltype="3" selected="selected">I want to download it.</option>';
 		}
 	}

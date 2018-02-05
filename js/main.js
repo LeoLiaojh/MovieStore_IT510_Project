@@ -109,6 +109,40 @@ function checkout_cart() {
 			}
 		});
     });
+}
 
+function checkout_buy() {
+	var movie_id = getUrlParameter("id");
+	var price = $("#sell_option").val();
+	var sell_type;
+	var text = $("#sell_option option:selected").text();
+	if (text == "I want to buy it.") {
+		sell_type = '1';
+	} else if (text == "I want to rent it.") {
+		sell_type = '2';
+	} else if (text == "I want to download it.") {
+		sell_type = '3';
+	}
 
+	$.ajax({
+		method: "POST",
+		url: "check_out.php",
+		dataType: "json",
+		data: {
+	  		"movieID" : movie_id,
+	  		"price" : price,
+	  		"sellType" : sell_type,
+	  		"checkType" : "buy"
+		},
+		success: function(e) {
+			if(e.result == "0000") {
+				alert("Purchase successful!")
+			} else {
+				alert(e.message);
+			}
+		},
+		error: function() {
+			alert("Connection error.");
+		}
+	});
 }
