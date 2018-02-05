@@ -168,15 +168,16 @@
 			    die("Connection failed: " . $sqlcon->connect_error);
 			} else {
 				# Get Ads from DB
-				$sql = "SELECT GenreName FROM genres ORDER BY GenreID";
+				$sql = "SELECT GenreID, GenreName FROM genres ORDER BY GenreID";
 				$result = $sqlcon->query($sql);
 
 				if ($result->num_rows > 0) {
 				    // output data of each row
 				    while($row = $result->fetch_assoc()) {
+				    	$list_location = "movieList.php?id=". $row['GenreID']. "&name=". $row['GenreName'];
 				    	echo 
 				    		'<div class="col-4">' .
-				    			'<a href="#">'. $row['GenreName']. '</a>' .
+				    			'<a href="'. $list_location. '">'. $row['GenreName']. '</a>' .
 				    		'</div>';
 				    }
 				} else {

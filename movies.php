@@ -113,8 +113,8 @@ if ($sqlcon->connect_error) {
 		$result3 = $sqlcon->query($sql3);
 		$row3 = $result3->fetch_assoc();
 		echo 
-			'price: $'. $row3['price']. '</span><form class="row"><div class="col-2"><button class="btn btn-primary submit_movie" type="submit">Buy</button></div><div class="col-10"><select class="form-control">'.
-			'<option value='. $row3['price']. '>I want to buy it.</option>';
+			'price: $'. $row3['price']. '</span><div class="row"><div class="col-3"><button class="btn btn-primary submit_movie" type="submit">Buy</button></div><div class="col-9"><select id="sell_option" class="form-control">'.
+			'<option value='. $row3['price']. ' selltype="1" selected="selected">I want to buy it.</option>';
 	}
 	if ($row['IsRent']==1) {
 		# code...
@@ -123,11 +123,11 @@ if ($sqlcon->connect_error) {
 		$row4 = $result4->fetch_assoc();
 		if ($row['IsSell']==1) {
 			# code...
-			echo '<option value='. $row4['price']. '>I want to rent it.</option>';
+			echo '<option value='. $row4['price']. ' selltype="2">I want to rent it.</option>';
 		} else {
 			echo 
-			'price: $'. $row4['price']. '</span><form class="row"><div class="col-2"><button class="btn btn-primary submit_movie" type="submit">Buy</button></div><div class="col-10"><select class="form-control">'.
-			'<option value='. $row4['price']. '>I want to rent it.</option>';
+			'price: $'. $row4['price']. '</span><div class="row"><div class="col-3"><button class="btn btn-primary submit_movie" type="submit">Buy</button></div><div class="col-9"><select id="sell_option" class="form-control">'.
+			'<option value='. $row4['price']. ' selltype="2" selected="selected">I want to rent it.</option>';
 		}
 	}
 	if ($row['IsDownload']==1) {
@@ -137,24 +137,25 @@ if ($sqlcon->connect_error) {
 		$row5 = $result5->fetch_assoc();
 		if ($row['IsSell']==1 || $row['IsDownload']==1) {
 			# code...
-			echo '<option value='. $row5['price']. '>I want to download it.</option>';
+			echo '<option value='. $row5['price']. ' selltype="3">I want to download it.</option>';
 		} else {
 			echo 
-			'price: $'. $row5['price']. '</span><form class="row"><div class="col-2"><button class="btn btn-primary submit_movie" type="submit">Buy</button></div><div class="col-10"><select class="form-control">'.
-			'<option value='. $row5['price']. '>I want to download it.</option>';
+			'price: $'. $row5['price']. '</span><div class="row"><div class="col-3"><button class="btn btn-primary submit_movie" type="submit">Buy</button></div><div class="col-9"><select id="sell_option" class="form-control">'.
+			'<option value='. $row5['price']. ' selltype="3" selected="selected">I want to download it.</option>';
 		}
 	}
 	echo 
-		'</select></div></form></div></div><div class="row description"><div class="col-12"><h3>Description</h3>'. 
+		'</select></div><div class="col-3" style="margin-top: 20px;"><button class="btn btn-success submit_movie" type="submit" onclick="add_cart()">Add to Cart</button></div></div></div></div><div class="row description"><div class="col-12"><h3>Description</h3>'. 
 		'<p>'. $row['Description']. '</p></div></div>';
 
 	#casts
 	echo '<div class="row cast"><h3>Cast and crew</h3>';
-	$sql6 = 'SELECT C.picture, C.Cast_F_Name, C.Cast_L_Name FROM casts AS C, movies AS M, moviecast AS MC WHERE M.MovieID = MC.MovieID AND C.CastID = MC.CastID AND MC.MovieID ='. $row['MovieID'];
+	$sql6 = 'SELECT C.CastID, C.picture, C.Cast_F_Name, C.Cast_L_Name FROM casts AS C, movies AS M, moviecast AS MC WHERE M.MovieID = MC.MovieID AND C.CastID = MC.CastID AND MC.MovieID ='. $row['MovieID'];
 	$result6 = $sqlcon->query($sql6);
 	while($row6 = $result6->fetch_assoc()) {
+		$cast_location = "'casts.php?id=". $row6['CastID']. "&name=". $row6['Cast_F_Name']. " ". $row6['Cast_L_Name']. "'";
 		echo 
-			'<div class="w-120"><div class="cast-button">'. 
+			'<div class="w-120" onclick="location.href='. $cast_location. '"><div class="cast-button">'. 
 			'<img src="'. $row6['picture']. '">'.
 			'</div><span>'. $row6['Cast_F_Name']. ' '. $row6['Cast_L_Name'].'</span></div>';
 	}
